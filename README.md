@@ -209,6 +209,7 @@ The schema contains two core models:
 - `category`
 - `date`
 - `notes`
+- `deletedAt`
 - `createdAt`
 - `updatedAt`
 
@@ -271,6 +272,10 @@ The API will be available at:
 http://localhost:3000/api
 ```
 
+## Environment Variables
+
+Refer to `.env.example` for required configuration.
+
 ## Seeded Users
 
 The seed script creates three users for local testing:
@@ -309,7 +314,7 @@ These tradeoffs keep the code understandable and focused for an assignment setti
 
 ## Future Improvements
 
-- Add Swagger / OpenAPI documentation
+- Enhance Swagger documentation with detailed request/response examples
 - Add automated tests for guards, services, and analytics endpoints
 - Introduce PostgreSQL for production-oriented persistence
 - Add rate limiting and request throttling
@@ -355,6 +360,12 @@ npm run prisma:push
   Set `DATABASE_URL="postgresql://postgres:password@localhost:5432/finance_db"`
 
 The current schema is intentionally simple enough to migrate cleanly to PostgreSQL if needed.
+
+## Notable Design Decisions
+
+- Implemented soft delete to preserve data integrity
+- Backend-driven analytics to reduce frontend complexity
+- Centralized RBAC using guards and decorators
 
 ## Evaluation Notes
 
